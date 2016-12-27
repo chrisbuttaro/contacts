@@ -5,6 +5,7 @@ app.component('appComponent', {
     var vm = this;
   },
   template : `
+    
     <form-component></form-component>
   `
 });

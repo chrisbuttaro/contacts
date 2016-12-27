@@ -1,8 +1,9 @@
 var app = angular.module("contacts");
 
 app.component('formComponent', {
-  controller:function() {
+  controller:function(STATES_LIST) {
     var vm=this;
+    vm.statesList=STATES_LIST.states;
 },
 
   template :`
@@ -36,15 +37,14 @@ app.component('formComponent', {
     <input type= "text"  class="form-control" placeholder="Street" required>
     <input type= "text"  class="form-control" placeholder="City" required>
 
-    <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+
+  <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">State
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-    <li><a href="#">HTML</a></li>
-    <li><a href="#">CSS</a></li>
-    <li><a href="#">JavaScript</a></li>
+      <li ng-repeat="state in $ctrl.statesList">{{state.abbreviation}}</li>
     </ul>
-    </div>
+  </div>
 
 
 
@@ -55,7 +55,6 @@ app.component('formComponent', {
   <div class="form-group">
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
-
 </form>`
 
 
