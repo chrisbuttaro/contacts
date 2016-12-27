@@ -1,4 +1,4 @@
-app.factory('statesService', function(STATES_LIST){
+app.factory('statesService', function(){
 var service = {};
 
 
