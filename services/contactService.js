@@ -6,8 +6,9 @@ var contactsList = [
 ];
 
 service.createContact=function(contact){
-  console.log(contact);
-  contactsList.push(contact);
+  var newContact={fname : contact.fname, lname : contact.lname, email : contact.email, phone : contact.phone, street: contact.street,
+  city: contact.city, state : contact.state, zip: contact.zip};
+  contactsList.push(newContact);
 
 };
 

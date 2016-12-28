@@ -8,9 +8,9 @@ app.component('contactsComponent', {
 },
   template : `
 
-  <div class="container-fluid" ng-repeat="contact in $ctrl.contactsList">
-    <div class="row">
-     <div class="col-md-4">
+  <div class="container-fluid">
+    <div class="row" >
+     <div class="col-md-3" ng-repeat="contact in $ctrl.contactsList">
     <h3>{{contact.fname}} {{contact.lname}}</h3>
     {{contact.email}}
     {{contact.phone}}

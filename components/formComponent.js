@@ -10,8 +10,8 @@ app.component('formComponent', {
     vm.createContact=contactService.createContact;
     vm.contact={};
     vm.stateSelected=function(state){
-      console.log(state);
       vm.contact.state=state.abbreviation;
+
 
     }
 },
@@ -49,7 +49,7 @@ app.component('formComponent', {
     <input type= "text"  class="form-control" ng-model="$ctrl.contact.city" placeholder="City" required>
 
 
-      <button class="btn btn-info  dropdown-toggle" type="button" data-toggle="dropdown">State
+      <button class="btn btn-info  dropdown-toggle" type="button" data-toggle="dropdown">State: {{$ctrl.contact.state}}
       <span class="caret"></span></button>
       <ul class="dropdown-menu">
         <li ng-repeat="state in $ctrl.stateList"><a ng-click="$ctrl.stateSelected(state)" href="#">{{state.abbreviation}}</a></li>
