@@ -3,9 +3,17 @@ var app = angular.module("contacts");
 app.component('formComponent', {
   controller:function(STATES_LIST, contactService) {
     var vm=this;
-    vm.statesList=STATES_LIST.states;
+
+    vm.stateList=STATES_LIST.states;
+
+
     vm.createContact=contactService.createContact;
     vm.contact={};
+    vm.stateSelected=function(state){
+      console.log(state);
+      vm.contact.state=state.abbreviation;
+
+    }
 },
 
   template :`
@@ -40,13 +48,13 @@ app.component('formComponent', {
     <input type= "text"  class="form-control" ng-model="$ctrl.contact.street" placeholder="Street" required>
     <input type= "text"  class="form-control" ng-model="$ctrl.contact.city" placeholder="City" required>
 
-    <div class="dropdown">
-      <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">State
+
+      <button class="btn btn-info  dropdown-toggle" type="button" data-toggle="dropdown">State
       <span class="caret"></span></button>
-      <ul class="dropdown-menu" ng-model="$ctrl.contact.state">
-        <li><a href="#" ng-repeat="state in $ctrl.statesList">{{state.abbreviation}}</a></li>
+      <ul class="dropdown-menu">
+        <li ng-repeat="state in $ctrl.stateList"><a ng-click="$ctrl.stateSelected(state)" href="#">{{state.abbreviation}}</a></li>
       </ul>
-    </div>
+
 
 
     <input type= "number"  class="form-control" ng-model="$ctrl.contact.zip" placeholder="Zip" required>
