@@ -1,6 +1,6 @@
 app.factory('contactService', function(){
 var service = {};
-var contactsList = [
+ var contactsList = [
   {fname : "Elon", lname : "Musk", email : "Musk@SpaceX.com", phone : 1123581, street: "1 Rocket Road",
   city: "Hawthorne", state : "CA", zip: 18573},
 
@@ -22,13 +22,6 @@ service.createContact=function(contact){
 
 };
 
-service.editContact=function(contact){
-  var editContact={};
-  if(contact.fname!=null){
-    editContact.fname=contact.fname;
-  }
-
-}
  service.deleteContact=function(contact){
    contactsList.splice(contactsList.indexOf(contact), 1);
 

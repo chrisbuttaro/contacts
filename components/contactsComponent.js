@@ -19,13 +19,24 @@ app.component('contactsComponent', {
        {{contact.street}}<br>
        {{contact.city}},
        {{contact.state}}<br>
-       <div class="btn-group" role="group">
+  <div class="btn-group" role="group" aria-label="Basic example">
        <button type="button" ng-click="$ctrl.delete(contact)" class="btn btn-warning glyphicon glyphicon-trash"></button>
-        <button type="button" class="btn btn-info glyphicon glyphicon-edit" data-toggle="collapse" data-target="#demo"></button>
-        <div id="demo" class="collapse">
-          <edit-component contact=contact></edit-component>
-        </div>
+        <button type="button" class="accordion btn btn-info glyphicon glyphicon-edit"></button>
+            <div class="panel">
+                <edit-component cont="contact"></edit-component>
+            </div>
+            <script>
+              var acc = document.getElementsByClassName("accordion");
+              var i;
+              for (i = 0; i < acc.length; i++) {
+                acc[i].onclick = function(){
+                  this.classList.toggle("active");
+                  this.nextElementSibling.classList.toggle("show");
+                 }
+               }
+              </script>
 
+          </div>
        </div>
       </div>
     </div>
