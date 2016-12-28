@@ -18,7 +18,7 @@ app.component('contactsComponent', {
        <b>Phone:</b> {{contact.phone}}<br>
        {{contact.street}}<br>
        {{contact.city}},
-       {{contact.state}}<br>
+       {{contact.state}} {{contact.zip}}<br>
   <div class="btn-group" role="group" aria-label="Basic example">
        <button type="button" ng-click="$ctrl.delete(contact)" class="btn btn-warning glyphicon glyphicon-trash"></button>
         <button type="button" class="accordion btn btn-info glyphicon glyphicon-edit"></button>
